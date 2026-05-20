@@ -36,3 +36,6 @@ jobs:
 
       - name: Validate FastAPI import
         run: python -c "from app.main import app; print(app.title)"
+
+      - name: Run tests
+        run: pytest
