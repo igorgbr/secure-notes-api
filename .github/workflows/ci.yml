@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    name: Build and validate Python app
+    name: Build, validate and test Python app
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
         run: python -m compileall app
 
       - name: Validate FastAPI import
-        run: python -c "from app.main import app; print(app.title)"
+        run: PYTHONPATH=. python -c "from app.main import app; print(app.title)"
 
       - name: Run tests
-        run: pytest
+        run: PYTHONPATH=. pytest
