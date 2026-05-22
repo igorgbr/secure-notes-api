@@ -39,3 +39,6 @@ jobs:
 
       - name: Run tests
         run: PYTHONPATH=. pytest
+
+      - name: Audit Python dependencies
+        run: pip install pip-audit && pip-audit -r requirements.txt
