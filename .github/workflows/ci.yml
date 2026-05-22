@@ -41,4 +41,7 @@ jobs:
         run: PYTHONPATH=. pytest
 
       - name: Audit Python dependencies
-        run: pip install pip-audit && pip-audit -r requirements.txt continue-on-error=true
+        run: |
+          pip install pip-audit
+          pip-audit -r requirements.txt
+        continue-on-error: true
